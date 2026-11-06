@@ -3,73 +3,129 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Granola-bAV – Betriebliche Vorsorge &amp; Digitalisierung</title>
-<meta name="description" content="Granola-bAV: betriebliche Vorsorge, digital & unkompliziert. granola.connect, granola.system, granola.protect, granola.recht, granola.impact." />
+<title>Granola-bAV – Betriebliche Vorsorge digitalisieren</title>
+<meta name="description" content="Granola-bAV: betriebliche Vorsorge als Prozess gedacht. granola.connect, granola.system, granola.protect, granola.recht, granola.impact." />
 <style>
   :root {
-    --green: #16a34a;
-    --green-dark: #15803d;
-    --green-light: #f0fdf4;
-    --ink: #1f2937;
-    --muted: #6b7280;
+    --green: #22c55e;
+    --green-dark: #16a34a;
+    --green-deep: #14532d;
+    --ink: #0b1220;
+    --ink-2: #101a2e;
+    --muted: #64748b;
+    --muted-light: #94a3b8;
     --bg: #ffffff;
-    --bg-soft: #f8fafc;
-    --border: #e5e7eb;
+    --bg-soft: #f6f8fb;
+    --border: #e6eaf0;
+    --radius: 18px;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: "Segoe UI", system-ui, -apple-system, sans-serif; color: var(--ink); background: var(--bg); line-height: 1.6; }
-  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
-  header { position: sticky; top: 0; background: #fff; border-bottom: 1px solid var(--border); z-index: 10; }
-  .nav { display: flex; align-items: center; justify-content: space-between; padding: 16px 24px; max-width: 1080px; margin: 0 auto; }
-  .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.2rem; color: var(--ink); }
-  .logo-dot { width: 34px; height: 34px; border-radius: 10px; background: var(--green); display: inline-flex; align-items: center; justify-content: center; color: #fff; font-size: 0.9rem; font-weight: 700; }
-  nav { display: flex; gap: 4px; flex-wrap: wrap; }
-  nav button { background: none; border: none; padding: 8px 14px; font-size: 0.95rem; cursor: pointer; border-radius: 8px; color: var(--muted); font-family: inherit; transition: all .15s; }
-  nav button:hover { color: var(--ink); background: var(--bg-soft); }
-  nav button.active { color: var(--green-dark); background: var(--green-light); font-weight: 600; }
-  .hero { padding: 80px 0 70px; background: linear-gradient(180deg, var(--green-light) 0%, #fff 100%); text-align: center; }
-  .hero h1 { font-size: 2.6rem; font-weight: 800; letter-spacing: -0.02em; max-width: 720px; margin: 0 auto 18px; }
-  .hero h1 span { color: var(--green); }
-  .hero p { color: var(--muted); font-size: 1.15rem; max-width: 620px; margin: 0 auto 30px; }
-  .btn { display: inline-block; background: var(--green); color: #fff; border: none; padding: 13px 28px; border-radius: 10px; font-size: 1rem; font-weight: 600; cursor: pointer; font-family: inherit; transition: background .15s; }
-  .btn:hover { background: var(--green-dark); }
-  .btn.ghost { background: #fff; color: var(--green-dark); border: 1px solid var(--green); }
-  .btn.ghost:hover { background: var(--green-light); }
-  .section { padding: 64px 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: "Segoe UI", system-ui, -apple-system, sans-serif; color: var(--ink); background: var(--bg); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+  /* ===== Glass Nav ===== */
+  header { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.72); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(230,234,240,.8); }
+  .nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; max-width: 1120px; margin: 0 auto; }
+  .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.15rem; letter-spacing: -0.01em; }
+  .logo-dot { width: 36px; height: 36px; border-radius: 12px; background: linear-gradient(135deg, var(--green) 0%, var(--green-deep) 100%); display: inline-flex; align-items: center; justify-content: center; color: #fff; font-weight: 800; box-shadow: 0 4px 14px rgba(34,197,94,.35); }
+  nav { display: flex; gap: 2px; flex-wrap: wrap; }
+  nav button { background: none; border: none; padding: 9px 15px; font-size: .93rem; cursor: pointer; border-radius: 10px; color: var(--muted); font-family: inherit; font-weight: 600; transition: all .2s ease; }
+  nav button:hover { color: var(--ink); background: rgba(34,197,94,.08); transform: translateY(-1px); }
+  nav button.active { color: var(--green-dark); background: rgba(34,197,94,.12); }
+
+  /* ===== Buttons ===== */
+  .btn { display: inline-block; background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%); color: #fff; border: none; padding: 14px 30px; border-radius: 14px; font-size: 1rem; font-weight: 700; cursor: pointer; font-family: inherit; transition: all .25s ease; box-shadow: 0 6px 20px rgba(34,197,94,.3); }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(34,197,94,.4); }
+  .btn.ghost { background: transparent; color: var(--green-dark); border: 1.5px solid var(--green); box-shadow: none; }
+  .btn.ghost:hover { background: rgba(34,197,94,.08); box-shadow: none; }
+
+  /* ===== Hero (dunkel) ===== */
+  .hero { position: relative; background: radial-gradient(1200px 600px at 70% -10%, rgba(34,197,94,.25), transparent 60%), linear-gradient(180deg, var(--ink) 0%, var(--ink-2) 100%); color: #fff; padding: 96px 0 84px; overflow: hidden; }
+  .hero::after { content: ""; position: absolute; inset: 0; background: radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,.25), transparent), radial-gradient(2px 2px at 80% 20%, rgba(255,255,255,.2), transparent), radial-gradient(1.5px 1.5px at 60% 70%, rgba(255,255,255,.15), transparent); pointer-events: none; }
+  .hero .wrap { position: relative; z-index: 1; text-align: center; }
+  .badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(34,197,94,.14); border: 1px solid rgba(34,197,94,.35); color: #86efac; font-size: .82rem; font-weight: 600; padding: 7px 16px; border-radius: 99px; margin-bottom: 26px; }
+  .badge::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 10px var(--green); }
+  .hero h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 850; letter-spacing: -0.03em; line-height: 1.12; max-width: 800px; margin: 0 auto 22px; }
+  .hero h1 span { background: linear-gradient(90deg, var(--green) 0%, #7dd3a0 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .hero p { color: #a8b3c5; font-size: 1.13rem; max-width: 640px; margin: 0 auto 34px; }
+  .hero .actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+  /* Ticker */
+  .ticker { margin-top: 58px; border-top: 1px solid rgba(255,255,255,.1); padding-top: 22px; color: #7b8698; font-size: .9rem; display: flex; flex-wrap: wrap; gap: 10px 26px; justify-content: center; }
+  .ticker span { display: inline-flex; align-items: center; gap: 8px; }
+  .ticker span::before { content: "✓"; color: var(--green); font-weight: 700; }
+
+  /* ===== Sections ===== */
+  .section { padding: 84px 0; }
   .section.soft { background: var(--bg-soft); }
-  .section h2 { font-size: 1.9rem; font-weight: 750; margin-bottom: 10px; letter-spacing: -0.01em; }
-  .section .lead { color: var(--muted); max-width: 640px; margin-bottom: 36px; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 22px; }
-  .card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 26px; transition: box-shadow .15s, transform .15s; }
-  .card:hover { box-shadow: 0 8px 24px rgba(0,0,0,.07); transform: translateY(-2px); }
-  .card .icon { width: 44px; height: 44px; border-radius: 11px; background: var(--green-light); color: var(--green-dark); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 14px; }
-  .card h3 { font-size: 1.1rem; margin-bottom: 8px; }
-  .card p { color: var(--muted); font-size: 0.95rem; }
-  .calc { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; max-width: 860px; margin: 0 auto; }
-  @media (max-width: 760px) { .calc { grid-template-columns: 1fr; } }
-  .calc-panel { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 30px; }
-  .field { margin-bottom: 20px; }
-  .field label { display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 6px; }
-  .field input { width: 100%; padding: 11px 13px; border: 1px solid var(--border); border-radius: 9px; font-size: 1rem; font-family: inherit; }
-  .field input:focus { outline: 2px solid var(--green); border-color: transparent; }
-  .result { background: linear-gradient(150deg, var(--green) 0%, var(--green-dark) 100%); color: #fff; border-radius: 16px; padding: 30px; display: flex; flex-direction: column; gap: 16px; }
-  .result h3 { font-size: 1rem; font-weight: 600; opacity: .9; }
-  .rrow { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid rgba(255,255,255,.2); padding-bottom: 10px; }
-  .rrow .label { font-size: .9rem; opacity: .85; }
-  .rrow .val { font-size: 1.35rem; font-weight: 700; }
-  .rrow.big .val { font-size: 1.9rem; }
-  .hint { font-size: .8rem; opacity: .75; margin-top: auto; }
-  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; max-width: 860px; margin: 0 auto; }
-  @media (max-width: 760px) { .contact-grid { grid-template-columns: 1fr; } }
-  .contact-info p { margin-bottom: 14px; color: var(--muted); }
+  .eyebrow { color: var(--green-dark); font-size: .82rem; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; margin-bottom: 12px; }
+  .section h2 { font-size: clamp(1.6rem, 3.2vw, 2.3rem); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 14px; }
+  .section .lead { color: var(--muted); max-width: 660px; margin-bottom: 44px; font-size: 1.05rem; }
+  .center { text-align: center; }
+  .center .lead, .center .eyebrow { margin-left: auto; margin-right: auto; }
+
+  /* Grid-Karten */
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; }
+  .card { position: relative; background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 30px; transition: all .3s ease; overflow: hidden; }
+  .card::before { content: ""; position: absolute; inset: 0; border-radius: var(--radius); padding: 1px; background: linear-gradient(135deg, rgba(34,197,94,.5), transparent 40%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0; transition: opacity .3s ease; }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(11,18,32,.1); border-color: transparent; }
+  .card:hover::before { opacity: 1; }
+  .card .icon { width: 48px; height: 48px; border-radius: 14px; background: linear-gradient(135deg, rgba(34,197,94,.14), rgba(34,197,94,.05)); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 16px; }
+  .card h3 { font-size: 1.18rem; font-weight: 750; margin-bottom: 8px; letter-spacing: -0.01em; }
+  .card .tag { display: inline-block; font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--green-dark); background: rgba(34,197,94,.1); padding: 3px 10px; border-radius: 99px; margin-bottom: 10px; }
+  .card p { color: var(--muted); font-size: .96rem; }
+
+  /* Stats */
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 20px; margin-top: 54px; }
+  .stat { text-align: center; padding: 26px 12px; border-radius: var(--radius); background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); }
+  .stat .num { font-size: 2.1rem; font-weight: 850; letter-spacing: -0.02em; background: linear-gradient(90deg, var(--green), #7dd3a0); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .stat .lbl { color: #7b8698; font-size: .88rem; margin-top: 4px; }
+  .dark { background: linear-gradient(180deg, var(--ink) 0%, var(--ink-2) 100%); color: #fff; }
+  .dark .section h2, .dark h2 { color: #fff; }
+  .dark .lead { color: #a8b3c5 !important; }
+
+  /* ===== Rechner ===== */
+  .calc { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; max-width: 900px; margin: 0 auto; }
+  @media (max-width: 780px) { .calc { grid-template-columns: 1fr; } }
+  .calc-panel { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 34px; }
+  .field { margin-bottom: 22px; }
+  .field label { display: block; font-size: .88rem; font-weight: 700; margin-bottom: 7px; }
+  .field input { width: 100%; padding: 13px 15px; border: 1.5px solid var(--border); border-radius: 12px; font-size: 1rem; font-family: inherit; transition: all .2s ease; }
+  .field input:focus { outline: none; border-color: var(--green); box-shadow: 0 0 0 4px rgba(34,197,94,.12); }
+  .result { background: linear-gradient(160deg, var(--ink) 0%, #0d1f2b 60%, #123524 100%); color: #fff; border-radius: var(--radius); padding: 34px; display: flex; flex-direction: column; gap: 18px; position: relative; overflow: hidden; }
+  .result::before { content: ""; position: absolute; top: -60px; right: -60px; width: 180px; height: 180px; border-radius: 50%; background: radial-gradient(circle, rgba(34,197,94,.35), transparent 70%); }
+  .result h3 { font-size: 1rem; font-weight: 700; opacity: .9; }
+  .rrow { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid rgba(255,255,255,.12); padding-bottom: 12px; position: relative; }
+  .rrow .label { font-size: .9rem; color: #a8b3c5; }
+  .rrow .val { font-size: 1.4rem; font-weight: 750; letter-spacing: -0.01em; }
+  .rrow.big .val { font-size: 2rem; color: var(--green); }
+  .hint { font-size: .78rem; color: #7b8698; margin-top: auto; padding-top: 8px; }
+
+  /* ===== Kontakt ===== */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 30px; max-width: 940px; margin: 0 auto; }
+  @media (max-width: 780px) { .contact-grid { grid-template-columns: 1fr; } }
+  .contact-info p { margin-bottom: 15px; color: var(--muted); }
   .contact-info strong { color: var(--ink); }
-  form .field input, form .field textarea { width: 100%; padding: 11px 13px; border: 1px solid var(--border); border-radius: 9px; font-size: 1rem; font-family: inherit; }
-  .field textarea { min-height: 120px; resize: vertical; }
-  .form-msg { display: none; background: var(--green-light); color: var(--green-dark); border: 1px solid var(--green); border-radius: 9px; padding: 12px; font-size: .95rem; margin-top: 12px; }
-  footer { background: #0f172a; color: #94a3b8; padding: 40px 0; margin-top: 40px; font-size: .9rem; }
+  .contact-info .big { font-size: 1.25rem; font-weight: 800; color: var(--ink); letter-spacing: -0.01em; }
+  form .field textarea { width: 100%; padding: 13px 15px; border: 1.5px solid var(--border); border-radius: 12px; font-size: 1rem; font-family: inherit; min-height: 130px; resize: vertical; }
+  .form-msg { display: none; background: rgba(34,197,94,.1); color: var(--green-dark); border: 1px solid rgba(34,197,94,.4); border-radius: 12px; padding: 14px; font-size: .95rem; margin-top: 14px; font-weight: 600; }
+
+  /* ===== Footer ===== */
+  footer { background: var(--ink); color: #64748b; padding: 46px 0; font-size: .88rem; }
   footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+
+  /* ===== Pages & Übergänge ===== */
   .page { display: none; }
-  .page.active { display: block; }
+  .page.active { display: block; animation: pageIn .45s ease both; }
+  @keyframes pageIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+  /* Scroll-Reveal */
+  .reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+  .reveal:nth-child(2) { transition-delay: .08s; } .reveal:nth-child(3) { transition-delay: .16s; }
+  .reveal:nth-child(4) { transition-delay: .24s; } .reveal:nth-child(5) { transition-delay: .32s; }
+  .reveal:nth-child(6) { transition-delay: .4s; }
 </style>
 </head>
 <body>
@@ -91,74 +147,106 @@
 <section class="page active" id="home">
   <div class="hero">
     <div class="wrap">
-      <h1>Betriebliche Vorsorge, die ankommt – <span>digital &amp; unkompliziert</span></h1>
-      <p>Granola-bAV unterstützt Unternehmen bei der Einführung und Digitalisierung der betrieblichen Altersvorsorge. Für Arbeitgeber: minimaler Aufwand. Für Mitarbeiter: mehr netto vom Brutto.</p>
-      <button class="btn" onclick="go('rechner')">Jetzt Vorteil berechnen</button>
-      <button class="btn ghost" onclick="go('kontakt')">Beratung anfragen</button>
+      <div class="badge">bAV als Prozess gedacht – digital &amp; rechtssicher</div>
+      <h1>Betriebliche Vorsorge, <span>digital verwalten</span> – endlich als Prozess gedacht.</h1>
+      <p>Granola-bAV verbindet HR-Anbindung, digitale Verwaltung, Kommunikation und Beratung in einem Workflow. Damit Ihre bAV rechtssicher läuft und HR entlastet wird.</p>
+      <div class="actions">
+        <button class="btn" onclick="go('rechner')">Vorteil berechnen</button>
+        <button class="btn ghost" style="color:#86efac;border-color:rgba(34,197,94,.5)" onclick="go('kontakt')">Erstgespräch · 15 Min. · unverbindlich</button>
+      </div>
+      <div class="ticker">
+        <span>Onboarding &amp; Übernahmen</span><span>Entgeltumwandlung &amp; Zuschüsse</span><span>Elternzeit &amp; Änderungen</span><span>Austritte &amp; Leistungsfälle</span><span>Mitarbeitendenservice</span>
+      </div>
     </div>
   </div>
-  <div class="section wrap">
-    <h2>Warum Granola-bAV?</h2>
-    <p class="lead">Wir verbinden Vorsorgeberatung mit modernen digitalen Prozessen – papierlos, transparent und rechtssicher.</p>
-    <div class="grid">
-      <div class="card"><div class="icon">✓</div><h3>Entlastung für HR</h3><p>Digitalisierte Prozesse reduzieren den Verwaltungsaufwand in der Personalabteilung deutlich.</p></div>
-      <div class="card"><div class="icon">↑</div><h3>Mitarbeiterbindung</h3><p>Eine attraktive bAV hilft Ihnen, Fachkräfte zu gewinnen und langfristig zu binden.</p></div>
-      <div class="card"><div class="icon">€</div><h3>Steuervorteile</h3><p>Beiträge zur bAV sind steuer- und sozialabgabenfrei – netto kostet Vorsorge weniger.</p></div>
-      <div class="card"><div class="icon">⚡</div><h3>100 % digital</h3><p>Onboarding, Verwaltung und Kommunikation laufen über eine moderne Plattform.</p></div>
+
+  <div class="section">
+    <div class="wrap center reveal">
+      <div class="eyebrow">Warum Granola-bAV</div>
+      <h2>Alle Bausteine greifen ineinander.</h2>
+      <p class="lead">Aus einer bAV, die funktioniert, wird eine, die wirkt – für Ihr Unternehmen und Ihre Beschäftigten.</p>
+    </div>
+    <div class="wrap">
+      <div class="grid">
+        <div class="card reveal"><div class="icon">✓</div><h3>HR-Entlastung</h3><p>Digitalisierte Prozesse nehmen Ihrer Personalabteilung Routinearbeit ab – deutlich, messbar, dauerhaft.</p></div>
+        <div class="card reveal"><div class="icon">↑</div><h3>Mitarbeiterbindung</h3><p>Eine sichtbare Arbeitgeberleistung hilft Ihnen, Fachkräfte zu gewinnen und langfristig zu binden.</p></div>
+        <div class="card reveal"><div class="icon">€</div><h3>Steuervorteile</h3><p>Beiträge zur bAV sind steuer- und sozialabgabenfrei – netto kostet Vorsorge weniger als brutto.</p></div>
+        <div class="card reveal"><div class="icon">⚡</div><h3>100 % digital</h3><p>Onboarding, Verwaltung und Kommunikation laufen über eine moderne Plattform – papierlos und nachvollziehbar.</p></div>
+      </div>
     </div>
   </div>
-  <div class="section soft">
-    <div class="wrap" style="text-align:center">
-      <h2>Bereit für den nächsten Schritt?</h2>
-      <p class="lead" style="margin:0 auto 26px">Lernen Sie in 30 Minuten kennen, wie einfache bAV heute sein kann.</p>
-      <button class="btn" onclick="go('kontakt')">Kostenloses Erstgespräch vereinbaren</button>
+
+  <div class="dark">
+    <div class="section center">
+      <div class="wrap reveal">
+        <h2>Bereit für den nächsten Schritt?</h2>
+        <p class="lead">Lernen Sie in 15 Minuten kennen, wie einfach bAV heute sein kann. Unverbindlich, ohne Verkaufsgespräch.</p>
+        <button class="btn" onclick="go('kontakt')">Erstgespräch vereinbaren</button>
+        <div class="stats">
+          <div class="stat"><div class="num">100 %</div><div class="lbl">digitale Prozesse</div></div>
+          <div class="stat"><div class="num">5</div><div class="lbl">Bausteine, ein Workflow</div></div>
+          <div class="stat"><div class="num">15 Min.</div><div class="lbl">zum Erstgespräch</div></div>
+          <div class="stat"><div class="num">0 €</div><div class="lbl">für das erste Gespräch</div></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ============ LEISTUNGEN ============ -->
 <section class="page" id="leistungen">
-  <div class="section wrap">
-    <h2>Unsere Dienstleistungen</h2>
-    <p class="lead">Fünf Bausteine, die Ihre betriebliche Vorsorge stark machen – einsetzbar einzeln oder als Gesamtpaket.</p>
-    <div class="grid">
-      <div class="card"><div class="icon">🔗</div><h3>granola.connect</h3><p>Nahtlose Anbindung an Ihre HR-Systeme wie Personio – Entgeltdaten, Onboarding und bAV-Verwaltung laufen automatisch, ohne Medienbrüche.</p></div>
-      <div class="card"><div class="icon">💻</div><h3>granola.system</h3><p>Eine komplette digitale bAV-Welt: Anträge, Verträge, Kommunikation und Reporting – alles an einem Ort, für Arbeitgeber und Mitarbeiter.</p></div>
-      <div class="card"><div class="icon">🛡️</div><h3>granola.protect</h3><p>Weitere starke Bausteine neben der Altersvorsorge: betriebliche Berufsunfähigkeits- (bBU) und Krankenversicherung (bKV) für rundum abgesicherte Mitarbeiter.</p></div>
-      <div class="card"><div class="icon">⚖️</div><h3>granola.recht</h3><p>Absolute Rechtssicherheit: Entgeltumwandlung, Gleichbehandlung und Verträge werden geprüft und dokumentiert – damit Sie als Arbeitgeber abgesichert sind.</p></div>
-      <div class="card"><div class="icon">🌱</div><h3>granola.impact</h3><p>Besonders wertschätzende Konzepte mit echtem Mehrwert für Mensch &amp; Umwelt – Vorsorge, die Ihre Haltung und Arbeitgebermarke sichtbar macht.</p></div>
+  <div class="section soft">
+    <div class="wrap">
+      <div class="center reveal">
+        <div class="eyebrow">Unsere Dienstleistungen</div>
+        <h2>Fünf Bausteine. Ein Workflow.</h2>
+        <p class="lead">Jeder Baustein ist einzeln stark – gemeinsam wird Ihre betriebliche Vorsorge zu einem Prozess, der trägt.</p>
+      </div>
+      <div class="grid">
+        <div class="card reveal"><div class="icon">🔗</div><span class="tag">granola.connect</span><h3>HR-Integration</h3><p>Nahtlose Anbindung an HR-Systeme wie Personio – Entgeltdaten, Onboarding und bAV-Verwaltung laufen automatisch, ohne Medienbrüche.</p></div>
+        <div class="card reveal"><div class="icon">💻</div><span class="tag">granola.system</span><h3>Digitale bAV-Welt</h3><p>Eine komplette Plattform: Anträge, Verträge, Kommunikation und Reporting – alles an einem Ort, für Arbeitgeber und Beschäftigte.</p></div>
+        <div class="card reveal"><div class="icon">🛡️</div><span class="tag">granola.protect</span><h3>Weitere Bausteine</h3><p>Betriebliche Berufsunfähigkeit (bBU) und Krankenversicherung (bKV) – für Beschäftigte, die rundum abgesichert sein sollen.</p></div>
+        <div class="card reveal"><div class="icon">⚖️</div><span class="tag">granola.recht</span><h3>Absolute Rechtssicherheit</h3><p>Entgeltumwandlung, Gleichbehandlung und Verträge werden geprüft und dokumentiert – damit Sie als Arbeitgeber abgesichert sind.</p></div>
+        <div class="card reveal"><div class="icon">🌱</div><span class="tag">granola.impact</span><h3>Wertschätzende Konzepte</h3><p>Konzepte mit echtem Mehrwert für Mensch &amp; Umwelt – Vorsorge, die Ihre Haltung und Arbeitgebermarke sichtbar macht.</p></div>
+        <div class="card reveal"><div class="icon">⚙️</div><span class="tag">granola.workflow</span><h3>Alles greift ineinander</h3><p>So wird aus einer bAV, die funktioniert, eine, die wirkt: verbunden, digital und mit spürbarer Entlastung für Ihr HR.</p></div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ============ RECHNER ============ -->
 <section class="page" id="rechner">
-  <div class="section wrap">
-    <h2>bAV-Vorteilsrechner</h2>
-    <p class="lead">Sehen Sie auf einen Blick, wie sich eine Entgeltumwandlung auf das Nettoeinkommen auswirkt.</p>
-    <div class="calc">
-      <div class="calc-panel">
-        <div class="field">
-          <label for="brutto">Bruttogehalt (Monat, €)</label>
-          <input type="number" id="brutto" value="3500" min="0" step="50" />
+  <div class="section">
+    <div class="wrap center reveal">
+      <div class="eyebrow">bAV-Vorteilsrechner</div>
+      <h2>Was bringt Entgeltumwandlung netto?</h2>
+      <p class="lead">Sehen Sie auf einen Blick, wie sich ein Vorsorgebeitrag auf Ihr Nettoeinkommen auswirkt.</p>
+    </div>
+    <div class="wrap">
+      <div class="calc">
+        <div class="calc-panel reveal">
+          <div class="field">
+            <label for="brutto">Bruttogehalt (Monat, €)</label>
+            <input type="number" id="brutto" value="3500" min="0" step="50" />
+          </div>
+          <div class="field">
+            <label for="beitrag">Monatlicher Beitrag (€)</label>
+            <input type="number" id="beitrag" value="150" min="0" step="10" />
+          </div>
+          <div class="field">
+            <label for="steuerklasse">Steuerklasse</label>
+            <input type="number" id="steuerklasse" value="1" min="1" max="6" step="1" />
+          </div>
+          <button class="btn" style="width:100%" onclick="calc()">Berechnen</button>
         </div>
-        <div class="field">
-          <label for="beitrag">Ihr monatlicher Beitrag (€)</label>
-          <input type="number" id="beitrag" value="150" min="0" step="10" />
+        <div class="result reveal">
+          <h3>Ihr Ergebnis (pro Monat)</h3>
+          <div class="rrow"><span class="label">Nettoreduzierung</span><span class="val" id="r-netto">–</span></div>
+          <div class="rrow"><span class="label">Ersparnis Steuern &amp; Abgaben</span><span class="val" id="r-ersparnis">–</span></div>
+          <div class="rrow"><span class="label">In der Vorsorge angelegt</span><span class="val" id="r-angespart">–</span></div>
+          <div class="rrow big"><span class="label">Wirkungsgrad</span><span class="val" id="r-wirkung">–</span></div>
+          <p class="hint">Nährungsrechnung mit vereinfachten Annahmen (2026). Ersetzt keine steuerliche oder gesetzliche Beratung.</p>
         </div>
-        <div class="field">
-          <label for="steuerklasse">Steuerklasse</label>
-          <input type="number" id="steuerklasse" value="1" min="1" max="6" step="1" />
-        </div>
-        <button class="btn" style="width:100%" onclick="calc()">Berechnen</button>
-      </div>
-      <div class="result">
-        <h3>Ihr Ergebnis (pro Monat)</h3>
-        <div class="rrow"><span class="label">Nettoreduzierung</span><span class="val" id="r-netto">–</span></div>
-        <div class="rrow"><span class="label">Ersparnis Steuern &amp; Abgaben</span><span class="val" id="r-ersparnis">–</span></div>
-        <div class="rrow"><span class="label">In der Vorsorge angelegt</span><span class="val" id="r-angespart">–</span></div>
-        <div class="rrow big"><span class="label">Wirkungsgrad</span><span class="val" id="r-wirkung">–</span></div>
-        <p class="hint">Nährungsrechnung mit vereinfachten Annahmen (2026). Ersetzt keine steuerliche oder gesetzliche Beratung.</p>
       </div>
     </div>
   </div>
@@ -166,44 +254,56 @@
 
 <!-- ============ ÜBER UNS ============ -->
 <section class="page" id="ueber">
-  <div class="section wrap">
-    <h2>Über uns</h2>
-    <p class="lead">Granola-bAV steht für betriebliche Vorsorge ohne Ballast – menschlich beraten, digital umgesetzt.</p>
-    <div class="grid">
-      <div class="card"><h3>Unsere Mission</h3><p>Betriebliche Altersvorsorge soll für jeden verständlich und für jedes Unternehmen machbar sein – unabhängig von Größe und Branche.</p></div>
-      <div class="card"><h3>Unser Ansatz</h3><p>Wir denken Prozesse zu Ende: Beratung, Implementierung und Verwaltung bilden bei uns ein digitales Gesamtkonzept.</p></div>
-      <div class="card"><h3>Wofür wir stehen</h3><p>Transparenz, Ehrlichkeit und langfristige Partnerschaft statt Produktdruck. Wir empfehlen nur, was wir selbst vertreten würden.</p></div>
+  <div class="section">
+    <div class="wrap">
+      <div class="center reveal">
+        <div class="eyebrow">Über uns</div>
+        <h2>Vorsorge ohne Ballast.</h2>
+        <p class="lead">Granola-bAV steht für betriebliche Vorsorge, die menschlich beraten und digital umgesetzt wird.</p>
+      </div>
+      <div class="grid">
+        <div class="card reveal"><h3>Unsere Mission</h3><p>Betriebliche Altersvorsorge soll für jeden verständlich und für jedes Unternehmen machbar sein – unabhängig von Größe und Branche.</p></div>
+        <div class="card reveal"><h3>Unser Ansatz</h3><p>Wir denken Prozesse zu Ende: Beratung, Implementierung und Verwaltung bilden bei uns ein digitales Gesamtkonzept.</p></div>
+        <div class="card reveal"><h3>Wofür wir stehen</h3><p>Transparenz, Ehrlichkeit und langfristige Partnerschaft statt Produktdruck. Wir empfehlen nur, was wir selbst vertreten würden.</p></div>
+      </div>
     </div>
   </div>
-  <div class="section soft">
-    <div class="wrap" style="text-align:center">
-      <h2>Lernen Sie uns kennen</h2>
-      <p class="lead" style="margin:0 auto 26px">Am besten in einem unverbindlichen Gespräch.</p>
-      <button class="btn" onclick="go('kontakt')">Kontakt aufnehmen</button>
+  <div class="dark">
+    <div class="section center">
+      <div class="wrap reveal">
+        <h2>Lernen Sie uns kennen</h2>
+        <p class="lead">Am besten in einem unverbindlichen Gespräch – 15 Minuten, ohne Verkaufsgespräch.</p>
+        <button class="btn" onclick="go('kontakt')">Kontakt aufnehmen</button>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ============ KONTAKT ============ -->
 <section class="page" id="kontakt">
-  <div class="section wrap">
-    <h2>Kontakt</h2>
-    <p class="lead">Schreiben Sie uns – wir melden uns in der Regel innerhalb eines Werktags.</p>
-    <div class="contact-grid">
-      <div class="contact-info">
-        <p><strong>Granola-bAV</strong></p>
-        <p>Musterstraße 12<br>80331 München</p>
-        <p><strong>Telefon:</strong> +49 89 123 456 78</p>
-        <p><strong>E-Mail:</strong> info@granola-bav.de</p>
-        <p><strong>Erreichbar:</strong> Mo–Fr, 9:00–17:00 Uhr</p>
+  <div class="section soft">
+    <div class="wrap">
+      <div class="center reveal">
+        <div class="eyebrow">Kontakt</div>
+        <h2>Schreiben Sie uns.</h2>
+        <p class="lead">Wir melden uns in der Regel innerhalb eines Werktags.</p>
       </div>
-      <form class="calc-panel" onsubmit="return sendMsg(event)">
-        <div class="field"><label for="name">Name</label><input id="name" required /></div>
-        <div class="field"><label for="email">E-Mail</label><input id="email" type="email" required /></div>
-        <div class="field"><label for="msg">Ihre Nachricht</label><textarea id="msg" required></textarea></div>
-        <button class="btn" type="submit">Nachricht senden</button>
-        <div class="form-msg" id="form-msg">Vielen Dank! Ihre Nachricht wurde übermittelt. (Demo – im Livebetrieb würde hier ein Mailversand folgen.)</div>
-      </form>
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <p class="big">Granola-bAV</p>
+          <p>Musterstraße 12<br>80331 München</p>
+          <p><strong>Telefon:</strong> +49 89 123 456 78</p>
+          <p><strong>E-Mail:</strong> info@granola-bav.de</p>
+          <p><strong>Erreichbar:</strong> Mo–Fr, 9:00–17:00 Uhr</p>
+        </div>
+        <form class="calc-panel reveal" onsubmit="return sendMsg(event)">
+          <div class="field"><label for="name">Name</label><input id="name" required /></div>
+          <div class="field"><label for="email">E-Mail</label><input id="email" type="email" required /></div>
+          <div class="field"><label for="msg">Ihre Nachricht</label><textarea id="msg" required></textarea></div>
+          <button class="btn" type="submit">Nachricht senden</button>
+          <div class="form-msg" id="form-msg">Vielen Dank! Ihre Nachricht wurde übermittelt. (Demo – im Livebetrieb folgt hier ein echter Mailversand.)</div>
+        </form>
+      </div>
     </div>
   </div>
 </section>
@@ -211,22 +311,37 @@
 <footer>
   <div class="wrap">
     <span>© 2026 Granola-bAV. Alle Rechte vorbehalten.</span>
-    <span>Impressum · Datenschutz · Beitragsbemessungsgrenzen Stand 2026</span>
+    <span>Impressum · Datenschutz · Stand 2026</span>
   </div>
 </footer>
 
 <script>
+  // --- Navigation mit weichem Seitenübergang ---
   function go(page) {
     document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
-    document.getElementById(page).classList.add("active");
+    var el = document.getElementById(page);
+    el.classList.add("active");
     document.querySelectorAll("#mainnav button").forEach(b =>
       b.classList.toggle("active", b.dataset.page === page));
-    window.scrollTo({ top: 0 });
+    window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
+    requestAnimationFrame(revealInit);
   }
   document.getElementById("mainnav").addEventListener("click", e => {
     if (e.target.dataset.page) go(e.target.dataset.page);
   });
 
+  // --- Scroll-Reveal ---
+  var io = new IntersectionObserver(entries => {
+    entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add("visible"); io.unobserve(en.target); } });
+  }, { threshold: 0.12 });
+  function revealInit() {
+    var active = document.querySelector(".page.active");
+    if (!active) return;
+    active.querySelectorAll(".reveal:not(.visible)").forEach(el => io.observe(el));
+  }
+  revealInit();
+
+  // --- bAV-Rechner (vereinfachte Nährungsrechnung, Stand 2026) ---
   var TAX = { 1: 0.36, 2: 0.36, 3: 0.36, 4: 0.38, 5: 0.42, 6: 0.42 };
   function calc() {
     var brutto = Math.max(0, parseFloat(document.getElementById("brutto").value) || 0);
@@ -245,6 +360,7 @@
   }
   calc();
 
+  // --- Kontaktformular (Demo) ---
   function sendMsg(e) {
     e.preventDefault();
     document.getElementById("form-msg").style.display = "block";
